@@ -1,0 +1,19 @@
+{
+  "name": "ev3code",
+  "version": "1.0.0",
+  "description": "Software to use the EV3 with ev3dev",
+  "main": "laptop.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leoworm/ev3code.git"
+  },
+  "author": "leoworm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leoworm/ev3code/issues"
+  },
+  "homepage": "https://github.com/leoworm/ev3code#readme"
+}
