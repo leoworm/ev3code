@@ -1,6 +1,8 @@
 var colors = require('colors');
 var keypress = require('keypress');
+var open = require('open');
 
+open('http://google.com');
 keypress(process.stdin);
 
 process.stdin.on('keypress', function(ch, key){
