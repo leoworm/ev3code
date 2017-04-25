@@ -18,6 +18,7 @@
   "homepage": "https://github.com/leoworm/ev3code#readme",
   "dependencies": {
     "colors": "^1.1.2",
+    "ev3dev-lang": "^1.0.0",
     "keypress": "^0.2.1"
   }
 }
