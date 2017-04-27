@@ -14,6 +14,8 @@ var rightMotor = new ev3.LargeMotor(rightMotorPort);
 var leftConnected = true;
 var rightConnected = true;
 
+var defaultSpeeddefaultSpeed200;
+
 //const emitter = new EventEmitter()
 //emitter.setMaxListeners(100)
 
@@ -45,17 +47,17 @@ process.stdin.on('keypress', function(ch, key){
     process.exit();
   }else if(ch==='w') {
     //both motors forward
-    leftMotor.runForever(-100);
-    rightMotor.runForever(-100);
+    leftMotor.runForever(-defaultSpeed);
+    rightMotor.runForever(-defaultSpeed);
   }else if (ch==='a') {
-    leftMotor.runForever(-100);
-    rightMotor.runForever(100);
+    leftMotor.runForever(-defaultSpeed);
+    rightMotor.runForever(defaultSpeed);
   }else if (ch==='d') {
-    leftMotor.runForever(100);
-    rightMotor.runForever(-100);
+    leftMotor.runForever(defaultSpeed);
+    rightMotor.runForever(-defaultSpeed);
   }else if (ch==='s') {
-    leftMotor.runForever(100);
-    rightMotor.runForever(100);
+    leftMotor.runForever(defaultSpeed);
+    rightMotor.runForever(defaultSpeed);
 /*  }else if (ch==='w' && ch==='a') {
     leftMotor.runForever(30);
     rightMotor.runForever(85);
@@ -65,9 +67,10 @@ process.stdin.on('keypress', function(ch, key){
   };*/
 }
   console.log(ch)
+  leftMotor.stop();
+  rightMotor.stop();
 });
 
-leftMotor.stop();
-rightMotor.stop();
+
 
 process.stdin.setRawMode(true);
