@@ -42,24 +42,29 @@ keypress(process.stdin);
 var pressedKey = 'x'
 
 process.stdin.on('keypress', function(ch, key){
+  var lastPressed = 'x'
   if(key.name === 'escape'){
     console.log('Escape pressed, exiting...');
     leftMotor.stop()
     rightMotor.stop()
     process.exit();
-  }else if(ch==='w') {
+  }else if(ch==='w' && lastPressed != 'w') {
     //both motors forward
     leftMotor.runForever(-defaultSpeed);
     rightMotor.runForever(-defaultSpeed);
-  }else if (ch==='a') {
+    var lastPressed = 'w';
+  }else if (ch==='a' && lastPressed != 'a') {
     leftMotor.runForever(-defaultSpeed);
     rightMotor.runForever(defaultSpeed);
-  }else if (ch==='d') {
+    var lastPressed = 'a';
+  }else if (ch==='d' && lastPressed != 'd') {
     leftMotor.runForever(defaultSpeed);
     rightMotor.runForever(-defaultSpeed);
-  }else if (ch==='s') {
+    var lastPressed = 'd';
+  }else if (ch==='s' && lastPressed != 's') {
     leftMotor.runForever(defaultSpeed);
     rightMotor.runForever(defaultSpeed);
+    var lastPressed = 's';
 /*  }else if (ch==='w' && ch==='a') {
     leftMotor.runForever(30);
     rightMotor.runForever(85);
