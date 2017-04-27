@@ -14,6 +14,8 @@ var rightMotor = new ev3.LargeMotor(rightMotorPort);
 var leftConnected = true;
 var rightConnected = true;
 
+console.log('The motors max speed is: ' + leftMotor.maxSpeed());
+
 var defaultSpeed = 2000;
 
 //const emitter = new EventEmitter()
@@ -66,7 +68,7 @@ process.stdin.on('keypress', function(ch, key){
     rightMotor.runForever(30);
   };*/
 }
-  console.log(ch)
+  console.log(leftMotor.speed());
   leftMotor.stop();
   rightMotor.stop();
 });
