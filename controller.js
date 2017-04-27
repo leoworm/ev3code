@@ -47,20 +47,21 @@ process.stdin.on('keypress', function(ch, key){
     leftMotor.stop()
     rightMotor.stop()
     process.exit();
-  }else if(ch==='w' && lastPressed != 'w') {
+  }else if(ch==='w' && lastPressed !== 'w') {
     //both motors forward
+    console.log('w started')
     leftMotor.runForever(-defaultSpeed);
     rightMotor.runForever(-defaultSpeed);
     var lastPressed = 'w';
-  }else if (ch==='a' && lastPressed != 'a') {
+  }else if (ch==='a' && lastPressed !== 'a') {
     leftMotor.runForever(-defaultSpeed);
     rightMotor.runForever(defaultSpeed);
     var lastPressed = 'a';
-  }else if (ch==='d' && lastPressed != 'd') {
+  }else if (ch==='d' && lastPressed !== 'd') {
     leftMotor.runForever(defaultSpeed);
     rightMotor.runForever(-defaultSpeed);
     var lastPressed = 'd';
-  }else if (ch==='s' && lastPressed != 's') {
+  }else if (ch==='s' && lastPressed !== 's') {
     leftMotor.runForever(defaultSpeed);
     rightMotor.runForever(defaultSpeed);
     var lastPressed = 's';
