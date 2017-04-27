@@ -40,27 +40,30 @@ var pressedKey = 'x'
 process.stdin.on('keypress', function(ch, key){
   if(key.name === 'escape'){
     console.log('Escape pressed, exiting...');
+    leftMotor.stop()
+    rightMotor.stop()
     process.exit();
   }else if(ch==='w') {
     //both motors forward
-    leftMotor.runForever(75);
-    rightMotor.runForever(75);
+    leftMotor.runForever(-100);
+    rightMotor.runForever(-100);
   }else if (ch==='a') {
-    leftMotor.runForever(-75);
-    rightMotor.runForever(75);
+    leftMotor.runForever(-100);
+    rightMotor.runForever(100);
   }else if (ch==='d') {
-    leftMotor.runForever(75);
-    rightMotor.runForever(-75);
+    leftMotor.runForever(100);
+    rightMotor.runForever(-100);
   }else if (ch==='s') {
-    leftMotor.runForever(-75);
-    rightMotor.runForever(-75);
-  }else if (ch==='w' && ch==='a') {
+    leftMotor.runForever(100);
+    rightMotor.runForever(100);
+/*  }else if (ch==='w' && ch==='a') {
     leftMotor.runForever(30);
     rightMotor.runForever(85);
   }else if (ch==='w' && ch==='d') {
     leftMotor.runForever(85);
     rightMotor.runForever(30);
-  };
+  };*/
+}
   console.log(ch)
 });
 
