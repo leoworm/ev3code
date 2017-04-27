@@ -3,6 +3,7 @@
 var colors = require('colors');
 var keypress = require('keypress');
 var ev3 = require('ev3dev-lang');
+//var events = require('events')
 
 var leftMotorPort = ev3.OUTPUT_A;
 var rightMotorPort = ev3.OUTPUT_B;
@@ -13,8 +14,8 @@ var rightMotor = new ev3.LargeMotor(rightMotorPort);
 var leftConnected = true;
 var rightConnected = true;
 
-const emitter = new EventEmitter()
-emitter.setMaxListeners(100)
+//const emitter = new EventEmitter()
+//emitter.setMaxListeners(100)
 
 //Checking if the motors are connected
 if(leftMotor.connected != true) {
@@ -36,15 +37,16 @@ keypress(process.stdin);
 
 var pressedKey = 'x'
 
+process.stdin.on('keypress', function(ch, key){
+  if(key.name === 'escape'){
+    console.log('Escape pressed, exiting...');
+    process.exit();
+  }
+  pressedKey = ch;
+});
+
 function run() {
   while(true){
-    process.stdin.on('keypress', function(ch, key){
-      if(key.name === 'escape'){
-        console.log('Escape pressed, exiting...');
-        process.exit();
-      }
-      pressedKey = ch;
-    });
     if(pressedKey==='w') {
       //both motors forward
       leftMotor.runForever(75);
