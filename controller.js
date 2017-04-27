@@ -4,8 +4,8 @@ var colors = require('colors');
 var keypress = require('keypress');
 var ev3 = require('ev3dev-lang');
 
-var leftMotorPort = 'A';
-var rightMotorPort = 'B';
+var leftMotorPort = ev3.OUTPUT_A;
+var rightMotorPort = ev3.OUTPUT_B;
 
 var leftMotor = new ev3.LargeMotor(leftMotorPort);
 var rightMotor = new ev3.LargeMotor(rightMotorPort);
@@ -14,7 +14,7 @@ var leftConnected = true;
 var rightConnected = true;
 
 //Checking if the motors are connected
-/*if(leftMotor.connected != true) {
+if(leftMotor.connected != true) {
   var leftConnected = false
   console.log("The left motor doesn't seem to be connected.".yellow);
 }
@@ -27,7 +27,7 @@ if(rightConnected===false || leftConnected===false) {
   process.exit();
 }else{
   console.log("Motors seem connected, continuing...\n".green);
-}*/
+}
 
 keypress(process.stdin);
 
