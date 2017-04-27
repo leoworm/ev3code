@@ -22,7 +22,7 @@ if(rightMotor.connected != true) {
   var rightConnected = false
   console.log("The right motor doesn't seem to be connected.".yellow);
 }
-if(rightConnected==false || leftConnected==false) {
+if(rightConnected===false || leftConnected===false) {
   console.log('Something is wrong, aborting...'.red);
   process.exit();
 }else{
