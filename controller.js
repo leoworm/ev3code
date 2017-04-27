@@ -16,7 +16,7 @@ var rightConnected = true;
 
 console.log('The motors max speed is: ' + leftMotor.maxSpeed);
 
-var defaultSpeed = 200;
+var defaultSpeed = 1000;
 
 //const emitter = new EventEmitter()
 //emitter.setMaxListeners(100)
@@ -39,17 +39,17 @@ if(rightConnected===false || leftConnected===false) {
 
 keypress(process.stdin);
 
-var lastPressed = 'x'
+var lastPressed = 'x';
 
 process.stdin.on('keypress', function(ch, key){
   if(key.name === 'escape'){
     console.log('Escape pressed, exiting...');
-    leftMotor.stop()
-    rightMotor.stop()
+    leftMotor.stop();
+    rightMotor.stop();
     process.exit();
   }else if(ch==='w' && lastPressed !== 'w') {
     //both motors forward
-    console.log('w started')
+    console.log('w started');
     leftMotor.runForever(-defaultSpeed);
     rightMotor.runForever(-defaultSpeed);
     var lastPressed = 'w';
