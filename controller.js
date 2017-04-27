@@ -49,6 +49,7 @@ process.stdin.on('keypress', function(ch, key){
     process.exit();
   }else if(ch==='w' && lastPressed !== 'w') {
     //both motors forward
+    console.log(lastPressed)
     console.log('w started');
     leftMotor.runForever(-defaultSpeed);
     rightMotor.runForever(-defaultSpeed);
