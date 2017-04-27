@@ -14,7 +14,7 @@ var rightMotor = new ev3.LargeMotor(rightMotorPort);
 var leftConnected = true;
 var rightConnected = true;
 
-var defaultSpeeddefaultSpeed200;
+var defaultSpeed = 200;
 
 //const emitter = new EventEmitter()
 //emitter.setMaxListeners(100)
