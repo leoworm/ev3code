@@ -31,34 +31,40 @@ if(rightConnected==false || leftConnected==false) {
 
 keypress(process.stdin);
 
-process.stdin.on('keypress', function(ch, key){
-  var isKeyDown = ch
-  if(key.name === 'escape'){
-    console.log('Escape pressed, exiting...');
-    process.exit();
-  }else if (ch==='w') {
-    //both motors forward
-    leftMotor.runForever(75);
-    rightMotor.runForever(75);
-  }else if (ch==='a') {
-    leftMotor.runForever(-75);
-    rightMotor.runForever(75);
-  }else if (ch==='d') {
-    leftMotor.runForever(75);
-    rightMotor.runForever(-75);
-  }else if (ch==='s') {
-    leftMotor.runForever(-75);
-    rightMotor.runForever(-75);
-  }else if (ch==='w' && ch==='a') {
-    leftMotor.runForever(30);
-    rightMotor.runForever(85);
-  }else if (ch==='w' && ch==='d') {
-    leftMotor.runForever(85);
-    rightMotor.runForever(30);
-  }else{
-    leftMotor.stop();
-    rightMotor.stop();
+function run() {
+  while(true){
+    process.stdin.on('keypress', function(ch, key){
+      if(key.name === 'escape'){
+        console.log('Escape pressed, exiting...');
+        process.exit();
+      }
+      pressedKey = ch;
+    });
+    if(pressedKey==='w') {
+      //both motors forward
+      leftMotor.runForever(75);
+      rightMotor.runForever(75);
+    }else if (pressedKey==='a') {
+      leftMotor.runForever(-75);
+      rightMotor.runForever(75);
+    }else if (pressedKey==='d') {
+      leftMotor.runForever(75);
+      rightMotor.runForever(-75);
+    }else if (pressedKey==='s') {
+      leftMotor.runForever(-75);
+      rightMotor.runForever(-75);
+    }else if (pressedKey==='w' && pressedKey==='a') {
+      leftMotor.runForever(30);
+      rightMotor.runForever(85);
+    }else if (pressedKey==='w' && pressedKey==='d') {
+      leftMotor.runForever(85);
+      rightMotor.runForever(30);
+    }else{
+      leftMotor.stop();
+      rightMotor.stop();
+    }
   }
-});
+}
 
 process.stdin.setRawMode(true);
+run();
