@@ -16,7 +16,7 @@ var rightConnected = true;
 
 console.log('The motors max speed is: ' + leftMotor.maxSpeed());
 
-var defaultSpeed = 2000;
+var defaultSpeed = 200;
 
 //const emitter = new EventEmitter()
 //emitter.setMaxListeners(100)
