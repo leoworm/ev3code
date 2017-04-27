@@ -13,6 +13,9 @@ var rightMotor = new ev3.LargeMotor(rightMotorPort);
 var leftConnected = true;
 var rightConnected = true;
 
+const emitter = new EventEmitter()
+emitter.setMaxListeners(100)
+
 //Checking if the motors are connected
 if(leftMotor.connected != true) {
   var leftConnected = false
