@@ -31,6 +31,8 @@ if(rightConnected===false || leftConnected===false) {
 
 keypress(process.stdin);
 
+var pressedKey = 'x'
+
 function run() {
   while(true){
     process.stdin.on('keypress', function(ch, key){
