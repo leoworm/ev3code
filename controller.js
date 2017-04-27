@@ -43,6 +43,7 @@ process.stdin.on('keypress', function(ch, key){
     process.exit();
   }
   pressedKey = ch;
+  console.log(ch)
 });
 
 function run() {
@@ -75,3 +76,4 @@ function run() {
 
 process.stdin.setRawMode(true);
 run();
+console.log('Continued after run()')
