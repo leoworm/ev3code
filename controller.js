@@ -14,7 +14,7 @@ var leftConnected = true;
 var rightConnected = true;
 
 //Checking if the motors are connected
-if(leftMotor.connected != true) {
+/*if(leftMotor.connected != true) {
   var leftConnected = false
   console.log("The left motor doesn't seem to be connected.".yellow);
 }
@@ -27,7 +27,7 @@ if(rightConnected===false || leftConnected===false) {
   process.exit();
 }else{
   console.log("Motors seem connected, continuing...\n".green);
-}
+}*/
 
 keypress(process.stdin);
 
