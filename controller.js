@@ -39,10 +39,9 @@ if(rightConnected===false || leftConnected===false) {
 
 keypress(process.stdin);
 
-var pressedKey = 'x'
+var lastPressed = 'x'
 
 process.stdin.on('keypress', function(ch, key){
-  var lastPressed = 'x'
   if(key.name === 'escape'){
     console.log('Escape pressed, exiting...');
     leftMotor.stop()
